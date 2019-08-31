@@ -1,0 +1,27 @@
+extends layout.pug
+
+block content
+    div(class="row")
+        div(class="col-md-6")
+            div(class="content-section")
+                form(method="POST" action="/register")
+                    fieldset(class="form-group")
+                        legend(class="border-bottom mb-4") Register
+                        if error
+                                div(class="alert alert-danger" role="alert")
+                                    ul
+                                    each n in error
+                                        li= n.msg
+                   
+                        div(class="form-group")
+                            input(class="form-control" placeholder="Username" name="username" required)
+                        div(class="form-group")
+                            input(class="form-control" placeholder="Email" name="email" required)
+                        div(class="row")
+                            div(class="col-md-6 form-group")
+                                input(class="form-control" placeholder="Password" name="password" type="password" required)
+                            div(class="col-md-6 form-group")
+                                input(class="form-control" placeholder="Confirm Password" name="confirmpassword" type="password" required)
+                    div(class="form-group")
+                        button(class="btn btn-primary" type="submit") Submit
+                
